@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gruis Training Institute candidate access: pay KSh 5,000 to unlock employer visibility, job matching, and placement support." />
+  <title>Candidate Access | Gruis Training Institute</title>
+  <style>
+    :root {
+      --bg: #f7f3ee;
+      --surface: #ffffff;
+      --surface-soft: #f4f8ff;
+      --navy: #12365a;
+      --navy-2: #163d6e;
+      --gold: #c9982a;
+      --gold-soft: #f8e6b3;
+      --ink: #17273d;
+      --muted: #556576;
+      --line: #e2dfd9;
+      --green: #1e7b57;
+      --shadow: rgba(17, 31, 49, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--navy);
+      color: #ebf5ff;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      min-height: 42px;
+      flex-wrap: wrap;
+      padding: 8px 0;
+    }
+
+    header.site-header {
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      box-shadow: 0 8px 24px rgba(18, 54, 90, 0.12);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.08rem;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.92);
+      font-size: 0.96rem;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      box-shadow: 0 10px 20px rgba(201, 152, 42, 0.22);
+    }
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(255,255,255,0.35);
+      color: white;
+    }
+    .btn-dark {
+      background: var(--navy);
+      color: white;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f2a40 0%, #12365a 24%, #1d5580 100%);
+      color: white;
+      padding: 72px 0 80px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      right: -120px;
+      top: -90px;
+      background: rgba(201, 152, 42, 0.16);
+      border-radius: 50%;
+      filter: blur(18px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.24);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.04;
+      letter-spacing: -0.05em;
+      max-width: 660px;
+    }
+
+    .hero-sub {
+      max-width: 620px;
+      margin: 18px 0 0;
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      box-shadow: 0 12px 36px rgba(9, 17, 29, 0.18);
+      padding: 24px;
+      backdrop-filter: blur(4px);
+    }
+
+    .price-box {
+      background: rgba(255,255,255,0.94);
+      border-radius: 18px;
+      color: var(--navy);
+      padding: 20px 18px;
+      box-shadow: 0 10px 26px rgba(11, 24, 42, 0.16);
+      margin-top: 18px;
+    }
+
+    .price-box .label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .price-box .amount {
+      margin-top: 8px;
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+
+    .price-box .note {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 700px;
+      font-size: 1.05rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px 22px;
+      box-shadow: 0 8px 18px var(--shadow);
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--surface-soft);
+      color: var(--navy);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px 10px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      color: var(--navy);
+    }
+
+    .card p,
+    .feature p,
+    .process p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .feature {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px 22px;
+      box-shadow: 0 8px 18px var(--shadow);
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 1.08rem;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      list-style: none;
+      padding: 0;
+      margin: 26px 0 0;
+    }
+
+    .process li {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px 18px;
+      box-shadow: 0 8px 18px var(--shadow);
+    }
+
+    .process .step {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--gold-soft);
+      color: var(--navy);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .process strong {
+      display: block;
+      margin: 10px 0 8px;
+      color: var(--navy);
+    }
+
+    .quote-box {
+      background: var(--surface-soft);
+      border: 1px solid #dfe8f3;
+      border-radius: 18px;
+      padding: 22px 24px;
+      margin-top: 28px;
+      color: var(--navy);
+      font-size: 1.04rem;
+      font-weight: 600;
+    }
+
+    .quote-box strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-wrap {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 8px 18px var(--shadow);
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 0.95rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #d7e1ee;
+      border-radius: 10px;
+      background: #fbfdff;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 4px;
+      color: var(--muted);
+      grid-column: 1 / -1;
+    }
+
+    .checkbox input {
+      width: 18px;
+      height: 18px;
+      margin-top: 4px;
+    }
+
+    .submit-row {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .muted-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 420px;
+    }
+
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.9);
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .card-grid,
+      .feature-grid,
+      .process {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero-grid { grid-template-columns: 1fr; }
+      .process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 14px 0;
+      }
+      .nav-links,
+      .nav-cta {
+        justify-content: center;
+      }
+      .card-grid,
+      .feature-grid,
+      .process,
+      form {
+        grid-template-columns: 1fr;
+      }
+      section { padding: 64px 0; }
+      .topbar .container {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>Flexible online learning</span>
+      <span>Career guidance • Student support</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Gruis Training Institute home">
+        <span class="brand-mark">G</span>
+        <span>Gruis Training Institute</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#courses">Courses</a>
+        <a href="index.html#why">Why GTI</a>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="#candidate-access">Candidate Access</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="index.html#apply" class="btn btn-secondary">Log in</a>
+        <a href="#candidate-access" class="btn btn-primary">Pay to access</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="candidate-access">
+    <section class="hero" aria-label="Candidate access hero section">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Candidate access • Employer visibility</div>
+          <h1>Pay KSh 5,000 to unlock your employer visibility pack.</h1>
+          <p class="hero-sub">This access allows candidates to be visible to employers, match with relevant opportunities, and receive support that makes it easier to apply for jobs locally and abroad.</p>
+
+          <div class="cta-row">
+            <a href="/candidates/signup" class="btn btn-primary">Get candidate access</a>
+            <a href="index.html#apply" class="btn btn-secondary">Back to home</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div style="font-size:0.82rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; color: rgba(255,255,255,0.72);">Candidate access pack</div>
+          <div class="price-box">
+            <div class="label">One-time access fee</div>
+            <div class="amount">KSh 5,000</div>
+            <div class="note">Paid by the candidate to unlock employer-facing access and profile visibility.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <h2>What this includes</h2>
+          <p>Candidates who pay the KSh 5,000 access fee receive visibility in the employer search system, can be matched to relevant opportunities, and receive support to improve job-readiness.</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <div class="tag">Employer visibility</div>
+            <h3>Appear in the candidate database</h3>
+            <p>Your profile becomes visible to employers looking for candidates with your course background, skills, and location preferences.</p>
+          </article>
+
+          <article class="card">
+            <div class="tag">Job matching</div>
+            <h3>Match with relevant jobs</h3>
+            <p>Employers and hiring teams can see an aligned shortlist based on completed courses, qualifications, location, and skills.</p>
+          </article>
+
+          <article class="card">
+            <div class="tag">Career support</div>
+            <h3>Support for CV and applications</h3>
+            <p>Get help preparing a strong CV, improving job applications, and positioning yourself for suitable local or international roles.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <h2>How matching works</h2>
+          <p>We combine the candidate’s skills, completed course history, location, and work interest to connect them with opportunities that best fit their profile.</p>
+        </div>
+
+        <ul class="process">
+          <li>
+            <div class="step">1</div>
+            <strong>Sign up</strong>
+            <p>Create a candidate profile and select your training or job interest.</p>
+          </li>
+          <li>
+            <div class="step">2</div>
+            <strong>Pay access</strong>
+            <p>Complete the KSh 5,000 one-time payment to unlock Employer Pack access.</p>
+          </li>
+          <li>
+            <div class="step">3</div>
+            <strong>Confirm preferences</strong>
+            <p>Set location, job type, course background, and availability.</p>
+          </li>
+          <li>
+            <div class="step">4</div>
+            <strong>Get matched</strong>
+            <p>Employers can view suitable profiles and candidates receive matching opportunities.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <h2>Candidate privacy & consent</h2>
+          <p>Candidate data is protected. Employer access is only granted after the candidate pays the access fee and explicitly gives consent for their details to be visible.</p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <strong>Consent-first access</strong>
+            <p>Profiles are only shared with employers after the candidate confirms they want to be visible.</p>
+          </div>
+
+          <div class="feature">
+            <strong>Secure access</strong>
+            <p>Employer visibility is controlled, limited, and tracked to support responsible use of the candidate directory.</p>
+          </div>
+
+          <div class="feature">
+            <strong>Professional support</strong>
+            <p>CV guidance and application support can help candidates present themselves more clearly to employers.</p>
+          </div>
+        </div>
+
+        <div class="quote-box">
+          “This gives students a practical route to become visible to employers, while keeping access controlled and professional.”
+          <strong>Gruis Candidate Access</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Access and payment</h2>
+          <p>One payment unlocks access to the candidate dashboard and employer visibility package.</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <div class="tag">Candidate access</div>
+            <h3>Employer Pack</h3>
+            <p>One-time access fee that allows candidates to be visible to employers and to receive relevant matching opportunities.</p>
+            <div class="price" style="margin-top:16px; font-weight:800; font-size:1.7rem; color:var(--green); letter-spacing:-0.04em;">KSh 5,000</div>
+          </article>
+
+          <article class="card">
+            <div class="tag">Optional support</div>
+            <h3>CV support</h3>
+            <p>Get help preparing a professional CV tailored to the role or field you are targeting.</p>
+            <div class="price" style="margin-top:16px; font-weight:800; font-size:1.7rem; color:var(--green); letter-spacing:-0.04em;">From KSh 500</div>
+          </article>
+
+          <article class="card">
+            <div class="tag">Access flow</div>
+            <h3>Pay to unlock</h3>
+            <p>After payment, the candidate is added to the visibility pool and can opt into employer matching and placement support.</p>
+            <div class="price" style="margin-top:16px; font-weight:800; font-size:1.7rem; color:var(--green); letter-spacing:-0.04em;">Instant</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Apply for access</h2>
+          <p>Complete the form below and begin the candidate access process for employer visibility and job matching.</p>
+        </div>
+
+        <div class="form-wrap">
+          <form action="mailto:info@gruiscollege.online" method="post" enctype="text/plain">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Your full name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" placeholder="Optional" />
+            </div>
+
+            <div class="field">
+              <label for="course">Completed or interested course</label>
+              <select id="course" name="course">
+                <option>Facility Management Fundamentals</option>
+                <option>Facility Operations &amp; Maintenance</option>
+                <option>Basic Caregiving</option>
+                <option>Basic Elderly Care</option>
+                <option>First Aid Awareness for Caregivers</option>
+                <option>Facility Management Professional Bundle</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="message">Tell us about your job goals</label>
+              <textarea id="message" name="message" placeholder="Share your career goals, preferred location, or the type of work you want to apply for."></textarea>
+            </div>
+
+            <div class="checkbox">
+              <input id="pilot" type="checkbox" required />
+              <label for="pilot">I understand the KSh 5,000 access fee is required to unlock the employer visibility package and that my details are only shared with employers after consent.</label>
+            </div>
+
+            <div class="submit-row">
+              <button type="submit" class="btn btn-primary">Submit access request</button>
+              <div class="muted-note">Need direct help? Email: info@gruiscollege.online • WhatsApp: +1 (213) 337-8634</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <strong>Gruis Training Institute</strong><br />
+        Practical learning for work, care and everyday growth.
+      </div>
+      <div>
+        Email: info@gruiscollege.online<br />
+        WhatsApp: +1 (213) 337-8634
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

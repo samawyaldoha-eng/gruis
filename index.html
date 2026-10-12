@@ -1,878 +1,316 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gruis Training Institute offers practical online learning in facility management, caregiving and workplace skills for career growth and daily work readiness." />
-  <title>Gruis Training Institute</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gruis Training Institute — International Professional Training</title>
+  <meta name="description" content="Gruis Training Institute is based in Nairobi, Kenya and delivers practical, internationally accessible online training in facility management, caregiving and workplace skills."/>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #f7f3ee;
-      --surface: #ffffff;
-      --surface-soft: #f4f8ff;
-      --navy: #12365a;
-      --navy-2: #163d6e;
-      --gold: #c9982a;
-      --gold-soft: #f8e6b3;
-      --ink: #17273d;
-      --muted: #556576;
-      --line: #e2dfd9;
-      --green: #1e7b57;
-      --shadow: rgba(17, 31, 49, 0.08);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      line-height: 1.6;
-      background: var(--bg);
-      color: var(--ink);
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      background: var(--navy);
-      color: #ebf5ff;
-      font-size: 0.82rem;
-      letter-spacing: 0.02em;
-    }
-
-    .topbar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      min-height: 42px;
-      flex-wrap: wrap;
-      padding: 8px 0;
-    }
-
-    header.site-header {
-      background: linear-gradient(135deg, var(--navy), var(--navy-2));
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      box-shadow: 0 8px 24px rgba(18, 54, 90, 0.12);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 76px;
-      gap: 18px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-size: 1.08rem;
-      letter-spacing: 0.03em;
-    }
-
-    .brand-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.22);
-      font-weight: 900;
-      font-size: 1.1rem;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: rgba(255,255,255,0.92);
-      font-size: 0.96rem;
-      font-weight: 600;
-      padding: 8px 10px;
-      border-radius: 999px;
-      transition: 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      background: rgba(255,255,255,0.08);
-    }
-
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      padding: 14px 22px;
-      font-weight: 700;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-      border: 1px solid transparent;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary {
-      background: var(--gold);
-      color: var(--navy);
-      box-shadow: 0 10px 20px rgba(201, 152, 42, 0.22);
-    }
-    .btn-secondary {
-      background: transparent;
-      border-color: rgba(255,255,255,0.35);
-      color: white;
-    }
-    .btn-dark {
-      background: var(--navy);
-      color: white;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #0f2a40 0%, #12365a 24%, #1d5580 100%);
-      color: white;
-      padding: 72px 0 80px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      right: -120px;
-      top: -90px;
-      background: rgba(201, 152, 42, 0.16);
-      border-radius: 50%;
-      filter: blur(18px);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 36px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.24);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      line-height: 1.04;
-      letter-spacing: -0.05em;
-      max-width: 660px;
-    }
-
-    .hero-sub {
-      max-width: 620px;
-      margin: 18px 0 0;
-      font-size: 1.08rem;
-      color: rgba(255,255,255,0.82);
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 32px;
-      color: rgba(255,255,255,0.82);
-      font-size: 0.92rem;
-    }
-
-    .trust-row span {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .trust-row span::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--gold);
-      display: inline-block;
-    }
-
-    .hero-card {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 20px;
-      box-shadow: 0 12px 36px rgba(9, 17, 29, 0.18);
-      padding: 24px;
-      backdrop-filter: blur(4px);
-    }
-
-    .certificate {
-      background: white;
-      color: var(--ink);
-      border-radius: 14px;
-      padding: 18px 18px 14px;
-      box-shadow: 0 10px 26px rgba(11, 24, 42, 0.16);
-      margin-top: 18px;
-    }
-
-    .certificate small {
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.72rem;
-      font-weight: 700;
-    }
-
-    .certificate h3 {
-      margin: 10px 0 12px;
-      font-size: 1.7rem;
-      line-height: 1.2;
-    }
-
-    .certificate .name {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 10px 0;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .certificate .meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      color: var(--muted);
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    section {
-      padding: 82px 0;
-    }
-
-    .section-heading {
-      margin-bottom: 28px;
-    }
-
-    .section-heading h2 {
-      margin: 0 0 10px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-      color: var(--navy);
-    }
-
-    .section-heading p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 700px;
-      font-size: 1.05rem;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 24px 22px;
-      box-shadow: 0 8px 18px var(--shadow);
-    }
-
-    .tag {
-      display: inline-block;
-      background: var(--surface-soft);
-      color: var(--navy);
-      border-radius: 999px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 7px 10px;
-      margin-bottom: 10px;
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.4rem;
-      color: var(--navy);
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      min-height: 78px;
-    }
-
-    .price {
-      margin-top: 16px;
-      font-weight: 800;
-      font-size: 1.7rem;
-      color: var(--green);
-      letter-spacing: -0.04em;
-    }
-
-    .price small {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--muted);
-      margin-left: 8px;
-      text-decoration: line-through;
-    }
-
-    .pricing-note {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .highlight {
-      background: linear-gradient(180deg, #fffaf1, #ffffff);
-      border: 2px solid rgba(201, 152, 42, 0.5);
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 28px;
-    }
-
-    .feature {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 24px 22px;
-      box-shadow: 0 8px 18px var(--shadow);
-    }
-
-    .feature strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--navy);
-      font-size: 1.08rem;
-    }
-
-    .feature p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .process {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-      list-style: none;
-      padding: 0;
-      margin: 26px 0 0;
-    }
-
-    .process li {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 20px 18px;
-      box-shadow: 0 8px 18px var(--shadow);
-    }
-
-    .process .step {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: var(--gold-soft);
-      color: var(--navy);
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .process strong {
-      display: block;
-      margin: 10px 0 8px;
-      color: var(--navy);
-    }
-
-    .process p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .quote-box {
-      background: var(--surface-soft);
-      border: 1px solid #dfe8f3;
-      border-radius: 18px;
-      padding: 22px 24px;
-      margin-top: 28px;
-      color: var(--navy);
-      font-size: 1.04rem;
-      font-weight: 600;
-    }
-
-    .quote-box strong {
-      display: block;
-      margin-top: 8px;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .form-wrap {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 22px;
-      box-shadow: 0 8px 18px var(--shadow);
-    }
-
-    form {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .field.full {
-      grid-column: 1 / -1;
-    }
-
-    label {
-      font-weight: 700;
-      color: var(--navy);
-      font-size: 0.95rem;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1.5px solid #d7e1ee;
-      border-radius: 10px;
-      background: #fbfdff;
-      color: var(--ink);
-      font: inherit;
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .checkbox {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-top: 4px;
-      color: var(--muted);
-      grid-column: 1 / -1;
-    }
-
-    .checkbox input {
-      width: 18px;
-      height: 18px;
-      margin-top: 4px;
-    }
-
-    .submit-row {
-      grid-column: 1 / -1;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 4px;
-    }
-
-    .muted-note {
-      color: var(--muted);
-      font-size: 0.9rem;
-      max-width: 420px;
-    }
-
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.9);
-      padding: 28px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .card-grid,
-      .feature-grid,
-      .process {
-        grid-template-columns: 1fr 1fr;
-      }
-      .hero-grid { grid-template-columns: 1fr; }
-      .process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
-    @media (max-width: 700px) {
-      .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 14px 0;
-      }
-      .nav-links,
-      .nav-cta {
-        justify-content: center;
-      }
-      .card-grid,
-      .feature-grid,
-      .process,
-      form {
-        grid-template-columns: 1fr;
-      }
-      section { padding: 64px 0; }
-      .topbar .container {
-        justify-content: center;
-      }
+    :root{
+      --bg:#f6f6f8;
+      --surface:#ffffff;
+      --navy:#12263f;
+      --navy-deep:#0b1d2d;
+      --accent:#b78d1f;
+      --accent-soft:#f7ecd0;
+      --muted:#6b7786;
+      --line:#e6e9ee;
+      --shadow:rgba(17,24,39,0.08);
+      --green:#1d6a4c;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.6;color:var(--navy);background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{background:var(--surface);border-bottom:1px solid var(--line)}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:16px}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:700}
+    .brand .mark{width:44px;height:44px;background:linear-gradient(180deg,var(--navy),#1b4770);color:#fff;border-radius:9px;display:grid;place-items:center;font-weight:800}
+    nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+    nav a{padding:8px 10px;border-radius:8px;font-weight:600;color:var(--muted)}
+    .nav-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer;border:1px solid transparent}
+    .btn-primary{background:var(--accent);color:#12263f}
+    .btn-ghost{background:transparent;border-color:var(--line);color:var(--navy)}
+    .hero{background:linear-gradient(180deg,#061d2f 0%,#0d2a42 42%,#123c61 100%);color:#fff;padding:56px 0;position:relative;overflow:hidden}
+    .hero::after{content:"";position:absolute;width:520px;height:520px;right:-120px;top:-90px;background:rgba(183,141,31,0.12);border-radius:50%;filter:blur(16px)}
+    .hero-inner{display:grid;grid-template-columns:1.12fr .88fr;gap:32px;align-items:center;position:relative;z-index:1}
+    .eyebrow{display:inline-block;background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:999px;font-weight:700;letter-spacing:.12em;font-size:.76rem;text-transform:uppercase}
+    h1{font-family:"Playfair Display",serif;font-size:clamp(30px,5vw,46px);margin:12px 0 10px;line-height:1.08;letter-spacing:-.04em}
+    p.lead{color:rgba(255,255,255,0.85);max-width:62ch;margin:0 0 20px}
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .meta-list{display:flex;flex-wrap:wrap;gap:18px;margin-top:28px;color:rgba(255,255,255,0.8);font-weight:600;font-size:.92rem}
+    .meta-list span{display:inline-flex;align-items:center;gap:8px}
+    .meta-list span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    .hero-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);padding:22px;border-radius:14px}
+    .cert{background:#fff;color:var(--navy);padding:16px;border-radius:10px;box-shadow:0 12px 32px rgba(3,9,21,0.18)}
+    .cert small{display:block;color:var(--muted);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
+    .cert h3{margin:8px 0 10px;font-size:1.28rem;line-height:1.2}
+    .meta-row{display:flex;justify-content:space-between;color:var(--muted);font-size:.88rem}
+    section{padding:64px 0}
+    .section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:22px}
+    .section-head h2{margin:0;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--navy)}
+    .section-head p{margin:6px 0 0;color:var(--muted);max-width:62ch}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:0 8px 20px var(--shadow)}
+    .tag{display:inline-block;padding:6px 10px;background:#f7f3e7;color:var(--navy);border-radius:999px;font-weight:700;font-size:.76rem;margin-bottom:10px;letter-spacing:.08em;text-transform:uppercase}
+    .card h3{margin:0 0 10px;font-size:1.35rem;color:var(--navy)}
+    .card p{margin:0;color:var(--muted)}
+    .price{margin-top:16px;font-weight:800;color:var(--navy);font-size:1.32rem}
+    .price small{color:var(--muted);font-size:.9rem;margin-left:8px;text-decoration:line-through}
+    .highlight{background:linear-gradient(180deg,#fffdf3,#ffffff);border:2px solid rgba(183,141,31,0.5)}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .step{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:0 8px 18px var(--shadow)}
+    .num{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);color:var(--navy);font-weight:800;margin-bottom:10px}
+    .step strong{display:block;margin-bottom:8px;color:var(--navy)}
+    .step p{margin:0;color:var(--muted)}
+    .form-grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .form-card,.aside-card{background:var(--surface);border:1px solid var(--line);padding:20px;border-radius:12px;box-shadow:0 10px 26px rgba(10,20,40,0.06)}
+    form .row{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+    label{font-weight:700;font-size:.94rem;color:var(--navy)}
+    input,select,textarea{width:100%;padding:12px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--navy)}
+    textarea{min-height:120px;resize:vertical}
+    button[type=submit]{background:var(--navy);color:#fff;border:none;padding:12px 16px;border-radius:10px;font-weight:700;cursor:pointer}
+    footer{background:var(--navy-deep);color:#dfeaf9;padding:28px 0;margin-top:28px}
+    .footer-grid{display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}
+    .muted{color:var(--muted)}
+    @media (max-width:980px){
+      .hero-inner{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:repeat(2,1fr)}
+      .form-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      nav{display:none}
+      .topbar{padding:12px 0}
+      .grid-3,.steps{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="container">
-      <span>Flexible online learning</span>
-      <span>Career guidance • Student support</span>
-    </div>
-  </div>
-
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#top" class="brand" aria-label="Gruis Training Institute home">
-        <span class="brand-mark">G</span>
+  <header>
+    <div class="container topbar">
+      <a class="brand" href="#top" aria-label="Gruis Training Institute home">
+        <span class="mark">G</span>
         <span>Gruis Training Institute</span>
       </a>
 
-      <nav class="nav-links" aria-label="Main navigation">
+      <nav aria-label="Main navigation">
         <a href="#courses">Courses</a>
-        <a href="#why">Why GTI</a>
         <a href="#how">How it works</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
         <a href="#apply">Apply</a>
       </nav>
 
-      <div class="nav-cta">
-        <a href="#apply" class="btn btn-secondary">Log in</a>
-        <a href="#apply" class="btn btn-primary">Sign up</a>
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="mailto:gruis.edu@gmail.com">Email us</a>
+        <a class="btn btn-primary" href="#apply">Apply now</a>
       </div>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero" aria-label="Hero section">
-      <div class="container hero-grid">
+    <section class="hero">
+      <div class="container hero-inner">
         <div>
-          <div class="eyebrow">Learn online. Earn a certificate.</div>
-          <h1>Build practical skills for work, care, and growth.</h1>
-          <p class="hero-sub">Gruis Training Institute helps learners develop real skills in facility management, caregiving, workplace support, and daily operations through flexible online learning.</p>
+          <div class="eyebrow">International online learning</div>
+          <h1>Professional training for careers, care, and workplace readiness.</h1>
+          <p class="lead">Based in Nairobi, Kenya and serving learners internationally, Gruis Training Institute delivers practical online learning in facility management, caregiving, workplace support and professional skills.</p>
 
-          <div class="cta-row">
-            <a href="#courses" class="btn btn-primary">Explore courses</a>
-            <a href="#apply" class="btn btn-secondary">Apply now</a>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#courses">Explore courses</a>
+            <a class="btn btn-ghost" href="#apply">Apply today</a>
           </div>
 
-          <div class="trust-row">
-            <span>Flexible learning</span>
-            <span>Career-ready skills</span>
-            <span>Certificate of completion</span>
+          <div class="meta-list">
+            <span>Flexible online delivery</span>
+            <span>Career-focused training</span>
+            <span>International learner access</span>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div style="font-size:0.82rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; color: rgba(255,255,255,0.72);">Certificate preview</div>
-          <div class="certificate">
+        <aside class="hero-card" aria-label="Certificate preview">
+          <div style="color:rgba(255,255,255,0.8);font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px">Certificate sample</div>
+          <div class="cert">
             <small>Gruis Training Institute</small>
             <h3>Facility Management Professional</h3>
-            <div class="name">Student Name</div>
-            <div class="meta">
-              <span>Completed</span>
-              <span>01 / 2027</span>
+            <div style="margin:10px 0;font-weight:700">Student Name</div>
+            <div class="meta-row">
+              <div>Status <br><span class="muted">Completed</span></div>
+              <div>Date <br><span class="muted">01 / 2027</span></div>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
     <section id="courses">
       <div class="container">
-        <div class="section-heading">
-          <h2>Popular courses</h2>
-          <p>Short, practical courses built for learners who want actionable skills and clearer opportunities in the workplace.</p>
+        <div class="section-head">
+          <div>
+            <h2>Selected professional programmes</h2>
+            <p>Short, practical and globally accessible courses designed for learners who want skills they can apply immediately in professional, caregiving and operational environments.</p>
+          </div>
+          <a href="#apply" class="btn btn-primary">Get started</a>
         </div>
 
-        <div class="card-grid">
+        <div class="grid-3">
           <article class="card">
             <div class="tag">Facility Management</div>
             <h3>Facility Management Fundamentals</h3>
-            <p>Learn the basics of managing day-to-day operations, spaces, workflows and service quality in different facilities.</p>
+            <p>Practical skills for site operations, routine oversight and day-to-day workplace efficiency.</p>
             <div class="price">KES 2,500</div>
-            <div class="pricing-note">Ideal for beginners and support staff.</div>
-          </article>
-
-          <article class="card">
-            <div class="tag">Maintenance</div>
-            <h3>Facility Operations &amp; Maintenance</h3>
-            <p>Build practical knowledge of maintenance planning, issue handling and operational efficiency for different environments.</p>
-            <div class="price">KES 3,500</div>
-            <div class="pricing-note">Useful for operations and support roles.</div>
-          </article>
-
-          <article class="card highlight">
-            <div class="tag">Bundle</div>
-            <h3>Facility Management Professional Bundle</h3>
-            <p>Six focused courses for a stronger foundation in facilities, operations, safety and workplace readiness.</p>
-            <div class="price">KES 16,500 <small>KES 20,500</small></div>
-            <div class="pricing-note">Best value option for career-focused learners.</div>
           </article>
 
           <article class="card">
             <div class="tag">Caregiving</div>
-            <h3>Basic Caregiving</h3>
-            <p>Develop the practical skills needed to provide respectful and effective personal support in care settings.</p>
+            <h3>Basic Caregiving &amp; Client Support</h3>
+            <p>Respectful, practical care practices for support environments, homes and client services.</p>
             <div class="price">KES 4,000</div>
-            <div class="pricing-note">Helpful for family carers and support professionals.</div>
           </article>
 
-          <article class="card">
-            <div class="tag">Elder Care</div>
-            <h3>Basic Elderly Care</h3>
-            <p>Learn how to support older adults with dignity, empathy and confidence through practical care routines.</p>
-            <div class="price">KES 3,500</div>
-            <div class="pricing-note">Supports homecare and caregiving roles.</div>
-          </article>
-
-          <article class="card">
-            <div class="tag">First Aid</div>
-            <h3>First Aid Awareness for Caregivers</h3>
-            <p>Understand urgent response basics and safe action steps for caregiving and workplace support scenarios.</p>
-            <div class="price">KES 3,500</div>
-            <div class="pricing-note">A practical safety skill for daily work environments.</div>
+          <article class="card highlight">
+            <div class="tag">Bundle</div>
+            <h3>Professional Bundle — Facilities &amp; Safety</h3>
+            <p>A career package combining multiple practical short courses for stronger workplace readiness.</p>
+            <div class="price">KES 16,500 <small>KES 20,500</small></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="why">
+    <section id="about">
       <div class="container">
-        <div class="section-heading">
-          <h2>Why choose GTI?</h2>
-          <p>Our training approach is designed to balance practical knowledge with learner confidence and career support.</p>
+        <div class="section-head">
+          <h2>International reach with a strong regional base</h2>
+          <p>Our head office is in Nairobi, Kenya, while our learning model is designed to support students and professionals across borders through flexible online access.</p>
         </div>
 
-        <div class="feature-grid">
-          <div class="feature">
-            <strong>Career-ready learning</strong>
-            <p>Each course focuses on practical tasks, day-to-day responsibilities and skills that are easy to apply in real work settings.</p>
-          </div>
+        <div class="grid-3">
+          <article class="card">
+            <div class="tag">Our base</div>
+            <h3>Head office: Nairobi, Kenya</h3>
+            <p>We operate from Nairobi, Kenya while offering learning access to students and professionals internationally.</p>
+          </article>
 
-          <div class="feature">
-            <strong>Flexible online access</strong>
-            <p>Study at a pace that fits your schedule while receiving clear guidance and straightforward course structure.</p>
-          </div>
+          <article class="card">
+            <div class="tag">Our model</div>
+            <h3>Online and practical</h3>
+            <p>Training is designed to be practical and accessible, allowing learners to build relevant skills regardless of location.</p>
+          </article>
 
-          <div class="feature">
-            <strong>Student support</strong>
-            <p>From course access to enrollment guidance, learners can get help with the next step toward success.</p>
-          </div>
-        </div>
-
-        <div class="quote-box">
-          “I wanted something practical, accessible and useful for work. GTI gives me a direct path to skills that I can apply right away.”
-          <strong>Student experience</strong>
+          <article class="card">
+            <div class="tag">Our value</div>
+            <h3>Career relevance</h3>
+            <p>We focus on real-world tasks, skills application and professional development for modern work environments.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="how">
       <div class="container">
-        <div class="section-heading">
-          <h2>How it works</h2>
-          <p>Simple steps from sign-up to course completion.</p>
+        <div class="section-head">
+          <h2>How GTI works</h2>
+          <p>A four-step learning path that keeps things clear, practical and easy to follow.</p>
         </div>
 
-        <ul class="process">
-          <li>
-            <div class="step">1</div>
-            <strong>Choose a course</strong>
-            <p>Select the program that matches your role, interest or area of growth.</p>
-          </li>
-          <li>
-            <div class="step">2</div>
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
+            <strong>Choose</strong>
+            <p>Select the course or bundle that fits your goals.</p>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
             <strong>Enroll</strong>
-            <p>Complete your registration and confirm your chosen study path with GTI.</p>
-          </li>
-          <li>
-            <div class="step">3</div>
-            <strong>Study and complete</strong>
-            <p>Follow the learning content, complete the required tasks and finish the course.</p>
-          </li>
-          <li>
-            <div class="step">4</div>
-            <strong>Receive certificate</strong>
-            <p>Get your certificate and use it as proof of learning and completion.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="pricing">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Pricing overview</h2>
-          <p>Transparent entry points for learners who want practical education without unnecessary complexity.</p>
-        </div>
-
-        <div class="card-grid">
-          <article class="card">
-            <div class="tag">Single course</div>
-            <h3>Standard</h3>
-            <p>Focused course access for individuals who want one practical training path.</p>
-            <div class="price">KES 2,500 – 4,000</div>
-          </article>
-
-          <article class="card highlight">
-            <div class="tag">Most popular</div>
-            <h3>Professional bundle</h3>
-            <p>Higher-value package for learners wanting stronger coverage across multiple work-relevant areas.</p>
-            <div class="price">KES 16,500</div>
-          </article>
-
-          <article class="card">
-            <div class="tag">Registration</div>
-            <h3>One-time fee</h3>
-            <p>A registration fee may apply depending on the selected course or enrolment flow.</p>
-            <div class="price">KES 1,000</div>
-          </article>
+            <p>Register quickly and confirm the best next step for your learning path.</p>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <strong>Learn</strong>
+            <p>Complete practical modules and assessments with clear support.</p>
+          </div>
+          <div class="step">
+            <div class="num">4</div>
+            <strong>Certify</strong>
+            <p>Receive your certificate and continue with career preparation support.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="apply">
       <div class="container">
-        <div class="section-heading">
-          <h2>Apply today</h2>
-          <p>Start your enrollment journey by completing the form below or contacting GTI directly.</p>
+        <div class="section-head">
+          <h2>Apply or request employer pricing</h2>
+          <p>Complete the short application form below or contact us directly for enrolment guidance and pricing support.</p>
         </div>
 
-        <div class="form-wrap">
-          <form action="mailto:info@gruiscollege.online" method="post" enctype="text/plain">
-            <div class="field">
-              <label for="name">Full name</label>
-              <input id="name" name="name" type="text" placeholder="Your full name" required />
-            </div>
+        <div class="form-grid">
+          <div class="form-card">
+            <form method="post" action="mailto:gruis.edu@gmail.com" enctype="text/plain">
+              <div class="row">
+                <label for="fullname">Full name</label>
+                <input id="fullname" name="fullname" required />
+              </div>
 
-            <div class="field">
-              <label for="email">Email address</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required />
-            </div>
+              <div class="row">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" required />
+              </div>
 
-            <div class="field">
-              <label for="phone">Phone number</label>
-              <input id="phone" name="phone" type="tel" placeholder="Optional" />
-            </div>
+              <div class="row">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" placeholder="+254 7xx xxx xxx" />
+              </div>
 
-            <div class="field">
-              <label for="course">Preferred course</label>
-              <select id="course" name="course">
-                <option>Facility Management Fundamentals</option>
-                <option>Facility Operations &amp; Maintenance</option>
-                <option>Basic Caregiving</option>
-                <option>Basic Elderly Care</option>
-                <option>First Aid Awareness for Caregivers</option>
-                <option>Facility Management Professional Bundle</option>
-              </select>
-            </div>
+              <div class="row">
+                <label for="selection">Course / bundle</label>
+                <select id="selection" name="selection">
+                  <option>Facility Management Fundamentals</option>
+                  <option>Professional Bundle — Facilities &amp; Safety</option>
+                  <option>Basic Caregiving &amp; Client Support</option>
+                </select>
+              </div>
 
-            <div class="field full">
-              <label for="message">Tell us about your goals</label>
-              <textarea id="message" name="message" placeholder="Share your learning goals, current work interest, or the course you want to start with."></textarea>
-            </div>
+              <div class="row">
+                <label for="message">Brief note</label>
+                <textarea id="message" name="message" placeholder="Tell us about your goals, country, or employer requirements."></textarea>
+              </div>
 
-            <div class="checkbox">
-              <input id="pilot" type="checkbox" required />
-              <label for="pilot">I understand this is a pilot programme and GTI reviews all approval and payout conditions before any final confirmation is made.</label>
-            </div>
+              <div class="row">
+                <button type="submit">Submit application</button>
+              </div>
+            </form>
+          </div>
 
-            <div class="submit-row">
-              <button type="submit" class="btn btn-primary">Submit application</button>
-              <div class="muted-note">Need direct help? Email: info@gruiscollege.online • WhatsApp: +1 (213) 337-8634</div>
+          <aside class="aside-card">
+            <h4 style="margin:0 0 8px;color:var(--navy)">Need employer pricing?</h4>
+            <p class="muted" style="margin:0 0 12px">Reach out for group pricing, sponsorship and training packages for organisations and international teams.</p>
+            <div style="margin-top:12px;line-height:1.8">
+              <strong>Contact</strong><br />
+              Email: <a href="mailto:gruis.edu@gmail.com">gruis.edu@gmail.com</a><br />
+              WhatsApp: <a href="https://wa.me/12133378634" target="_blank" rel="noreferrer">+1 (213) 337-8634</a>
             </div>
-          </form>
+          </aside>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-inner">
+    <div class="container footer-grid">
       <div>
         <strong>Gruis Training Institute</strong><br />
-        Practical learning for work, care and everyday growth.
+        International online learning for careers, care and workplace readiness.
       </div>
-      <div>
-        Email: info@gruiscollege.online<br />
-        WhatsApp: +1 (213) 337-8634
+
+      <div class="muted">
+        Head office: Nairobi, Kenya<br />
+        Email: <a href="mailto:gruis.edu@gmail.com">gruis.edu@gmail.com</a> · WhatsApp: <a href="https://wa.me/12133378634" target="_blank" rel="noreferrer">+1 (213) 337-8634</a>
       </div>
     </div>
   </footer>

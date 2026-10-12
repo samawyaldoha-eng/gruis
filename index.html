@@ -4,44 +4,47 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gruis Training Institute — International Professional Training</title>
-  <meta name="description" content="Gruis Training Institute is based in Nairobi, Kenya and delivers practical, internationally accessible online training in facility management, caregiving and workplace skills."/>
+  <meta name="description" content="Gruis Training Institute is based in Nairobi, Kenya and delivers practical online learning for international learners, GCC job readiness, and employer-ready certification while NITA accreditation is in progress." />
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f6f6f8;
-      --surface:#ffffff;
+      --bg:#f5f7fb;
+      --surface:#fff;
       --navy:#12263f;
       --navy-deep:#0b1d2d;
       --accent:#b78d1f;
-      --accent-soft:#f7ecd0;
-      --muted:#6b7786;
-      --line:#e6e9ee;
+      --accent-soft:#f6ebc8;
+      --muted:#626f7d;
+      --line:#e5eaf0;
       --shadow:rgba(17,24,39,0.08);
-      --green:#1d6a4c;
+      --green:#156c45;
+      --warning:#fff8e8;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.6;color:var(--navy);background:var(--bg)}
+    body{margin:0;font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;color:var(--navy);background:var(--bg)}
     a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
     header{background:var(--surface);border-bottom:1px solid var(--line)}
     .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:16px}
     .brand{display:flex;gap:12px;align-items:center;font-weight:700}
-    .brand .mark{width:44px;height:44px;background:linear-gradient(180deg,var(--navy),#1b4770);color:#fff;border-radius:9px;display:grid;place-items:center;font-weight:800}
+    .brand .mark{width:42px;height:42px;background:linear-gradient(180deg,var(--navy),#1c4d77);color:#fff;border-radius:10px;display:grid;place-items:center;font-weight:800}
     nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
     nav a{padding:8px 10px;border-radius:8px;font-weight:600;color:var(--muted)}
     .nav-actions{display:flex;gap:10px;flex-wrap:wrap}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer;border:1px solid transparent}
     .btn-primary{background:var(--accent);color:#12263f}
     .btn-ghost{background:transparent;border-color:var(--line);color:var(--navy)}
-    .hero{background:linear-gradient(180deg,#061d2f 0%,#0d2a42 42%,#123c61 100%);color:#fff;padding:56px 0;position:relative;overflow:hidden}
+    .btn-dark{background:var(--navy);color:#fff}
+    .hero{background:linear-gradient(180deg,#061d2f 0%,#0d2a42 42%,#143d63 100%);color:#fff;padding:56px 0;position:relative;overflow:hidden}
     .hero::after{content:"";position:absolute;width:520px;height:520px;right:-120px;top:-90px;background:rgba(183,141,31,0.12);border-radius:50%;filter:blur(16px)}
     .hero-inner{display:grid;grid-template-columns:1.12fr .88fr;gap:32px;align-items:center;position:relative;z-index:1}
     .eyebrow{display:inline-block;background:rgba(255,255,255,0.06);padding:8px 12px;border-radius:999px;font-weight:700;letter-spacing:.12em;font-size:.76rem;text-transform:uppercase}
     h1{font-family:"Playfair Display",serif;font-size:clamp(30px,5vw,46px);margin:12px 0 10px;line-height:1.08;letter-spacing:-.04em}
-    p.lead{color:rgba(255,255,255,0.85);max-width:62ch;margin:0 0 20px}
+    .lead{color:rgba(255,255,255,0.84);max-width:62ch;margin:0 0 20px}
     .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-    .meta-list{display:flex;flex-wrap:wrap;gap:18px;margin-top:28px;color:rgba(255,255,255,0.8);font-weight:600;font-size:.92rem}
+    .meta-list{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px;color:rgba(255,255,255,0.8);font-weight:600;font-size:.92rem}
     .meta-list span{display:inline-flex;align-items:center;gap:8px}
     .meta-list span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent)}
     .hero-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);padding:22px;border-radius:14px}
@@ -49,6 +52,8 @@
     .cert small{display:block;color:var(--muted);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
     .cert h3{margin:8px 0 10px;font-size:1.28rem;line-height:1.2}
     .meta-row{display:flex;justify-content:space-between;color:var(--muted);font-size:.88rem}
+    .status-banner{background:var(--warning);color:#3a2d0b;border:1px solid #f0d597;border-radius:10px;padding:12px 14px;margin:18px 0 0;font-weight:600}
+    .status-banner strong{color:#3a2d0b}
     section{padding:64px 0}
     .section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:22px}
     .section-head h2{margin:0;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--navy)}
@@ -66,6 +71,18 @@
     .num{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);color:var(--navy);font-weight:800;margin-bottom:10px}
     .step strong{display:block;margin-bottom:8px;color:var(--navy)}
     .step p{margin:0;color:var(--muted)}
+    .employer-strip{background:linear-gradient(180deg,#fffaf3,#fff);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .employer-block{display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .employer-block h2{margin:0 0 8px;color:var(--navy)}
+    .employer-block p{margin:0;color:var(--muted);max-width:700px}
+    .preinterview{background:#f4f9ff;border:1px solid #dfeaf9;border-radius:16px;padding:32px 24px}
+    .preinterview .inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    .preinterview h3{margin:0;color:var(--navy)}
+    .preinterview p{margin:6px 0 0;color:var(--muted);max-width:700px}
+    .faq-wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .faq{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:0 8px 18px var(--shadow)}
+    .faq h3{margin:0 0 8px;font-size:1.08rem;color:var(--navy)}
+    .faq p{margin:0;color:var(--muted)}
     .form-grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
     .form-card,.aside-card{background:var(--surface);border:1px solid var(--line);padding:20px;border-radius:12px;box-shadow:0 10px 26px rgba(10,20,40,0.06)}
     form .row{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
@@ -76,16 +93,18 @@
     footer{background:var(--navy-deep);color:#dfeaf9;padding:28px 0;margin-top:28px}
     .footer-grid{display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}
     .muted{color:var(--muted)}
+    .small-muted{color:var(--muted);font-size:.9rem}
     @media (max-width:980px){
       .hero-inner{grid-template-columns:1fr}
       .grid-3{grid-template-columns:1fr 1fr}
       .steps{grid-template-columns:repeat(2,1fr)}
-      .form-grid{grid-template-columns:1fr}
+      .faq-wrap,.form-grid{grid-template-columns:1fr}
     }
     @media (max-width:640px){
       nav{display:none}
       .topbar{padding:12px 0}
       .grid-3,.steps{grid-template-columns:1fr}
+      .btn{width:100%}
     }
   </style>
 </head>
@@ -100,7 +119,7 @@
       <nav aria-label="Main navigation">
         <a href="#courses">Courses</a>
         <a href="#how">How it works</a>
-        <a href="#about">About</a>
+        <a href="#employers">Employers</a>
         <a href="#apply">Apply</a>
       </nav>
 
@@ -116,18 +135,22 @@
       <div class="container hero-inner">
         <div>
           <div class="eyebrow">International online learning</div>
-          <h1>Professional training for careers, care, and workplace readiness.</h1>
-          <p class="lead">Based in Nairobi, Kenya and serving learners internationally, Gruis Training Institute delivers practical online learning in facility management, caregiving, workplace support and professional skills.</p>
+          <h1>Professional training for careers, care, and GCC job readiness.</h1>
+          <p class="lead">Based in Nairobi, Kenya and serving learners internationally, Gruis Training Institute delivers practical online learning in facility management, caregiving, workplace support and professional skills. NITA accreditation is currently in progress, while GTI issues Certificates of Completion and professional certificates for international learners.</p>
 
           <div class="hero-ctas">
             <a class="btn btn-primary" href="#courses">Explore courses</a>
-            <a class="btn btn-ghost" href="#apply">Apply today</a>
+            <a class="btn btn-ghost" href="#employers">Employers: verify talent</a>
           </div>
 
           <div class="meta-list">
-            <span>Flexible online delivery</span>
-            <span>Career-focused training</span>
-            <span>International learner access</span>
+            <span>Regional &amp; GCC-focused pathways</span>
+            <span>Verified GTI certificates</span>
+            <span>Employer-ready skills</span>
+          </div>
+
+          <div class="status-banner">
+            <strong>Accreditation:</strong> NITA accreditation is in progress. GTI issues Certificates of Completion and professional certificates to international learners while this process continues.
           </div>
         </div>
 
@@ -138,8 +161,8 @@
             <h3>Facility Management Professional</h3>
             <div style="margin:10px 0;font-weight:700">Student Name</div>
             <div class="meta-row">
-              <div>Status <br><span class="muted">Completed</span></div>
-              <div>Date <br><span class="muted">01 / 2027</span></div>
+              <div>Status <br><span class="small-muted">Completed</span></div>
+              <div>Certificate ID <br><span class="small-muted">GTI-2026-00123</span></div>
             </div>
           </div>
         </aside>
@@ -160,7 +183,7 @@
           <article class="card">
             <div class="tag">Facility Management</div>
             <h3>Facility Management Fundamentals</h3>
-            <p>Practical skills for site operations, routine oversight and day-to-day workplace efficiency.</p>
+            <p>Skills for site operations, maintenance routines, and daily workplace efficiency across residential, commercial and industrial settings.</p>
             <div class="price">KES 2,500</div>
           </article>
 
@@ -174,9 +197,23 @@
           <article class="card highlight">
             <div class="tag">Bundle</div>
             <h3>Professional Bundle — Facilities &amp; Safety</h3>
-            <p>A career package combining multiple practical short courses for stronger workplace readiness.</p>
+            <p>A career package combining multiple practical short courses to support job readiness and stronger employer confidence.</p>
             <div class="price">KES 16,500 <small>KES 20,500</small></div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="employers" class="employer-strip">
+      <div class="container employer-block">
+        <div>
+          <h2>Employers: hire verified GTI graduates</h2>
+          <p>Create an employer account to post jobs, search certified candidates by course and skill, and verify GTI certificates before hiring. We train to GCC employer expectations and job-readiness needs.</p>
+        </div>
+
+        <div class="nav-actions">
+          <a class="btn btn-primary" href="/employers/signup">Create employer account</a>
+          <a class="btn btn-ghost" href="/employers/contact">Request pricing</a>
         </div>
       </div>
     </section>
@@ -185,27 +222,39 @@
       <div class="container">
         <div class="section-head">
           <h2>International reach with a strong regional base</h2>
-          <p>Our head office is in Nairobi, Kenya, while our learning model is designed to support students and professionals across borders through flexible online access.</p>
+          <p>Our head office is in Nairobi, Kenya, while our learning model is built to support learners who are preparing for jobs, interviews and overseas opportunities across the GCC and larger global market.</p>
         </div>
 
         <div class="grid-3">
           <article class="card">
             <div class="tag">Our base</div>
             <h3>Head office: Nairobi, Kenya</h3>
-            <p>We operate from Nairobi, Kenya while offering learning access to students and professionals internationally.</p>
+            <p>We operate from Nairobi and work with learners preparing for both local and international career opportunities.</p>
           </article>
 
           <article class="card">
             <div class="tag">Our model</div>
             <h3>Online and practical</h3>
-            <p>Training is designed to be practical and accessible, allowing learners to build relevant skills regardless of location.</p>
+            <p>Training is practical and accessible, allowing learners to build job-ready skills for workplaces with different expectations.</p>
           </article>
 
           <article class="card">
             <div class="tag">Our value</div>
             <h3>Career relevance</h3>
-            <p>We focus on real-world tasks, skills application and professional development for modern work environments.</p>
+            <p>We focus on real-world tasks, skills application, and professional growth for modern work environments and GCC hiring pipelines.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="preinterview" class="container">
+      <div class="preinterview">
+        <div class="inner">
+          <div>
+            <h3>Prepare for GCC opportunities</h3>
+            <p>Take our short Pre-Interview Readiness pathway to align your CV, sharpen interview readiness, and improve your chances with recruiters and employers who seek international candidates.</p>
+          </div>
+          <a href="#apply" class="btn btn-primary">Enroll — Pre-Interview Pathway</a>
         </div>
       </div>
     </section>
@@ -214,29 +263,60 @@
       <div class="container">
         <div class="section-head">
           <h2>How GTI works</h2>
-          <p>A four-step learning path that keeps things clear, practical and easy to follow.</p>
+          <p>A clear four-step learning path designed to support both learners and employers.</p>
         </div>
 
         <div class="steps">
           <div class="step">
             <div class="num">1</div>
             <strong>Choose</strong>
-            <p>Select the course or bundle that fits your goals.</p>
+            <p>Select the course or bundle that aligns with your target industry or role.</p>
           </div>
           <div class="step">
             <div class="num">2</div>
             <strong>Enroll</strong>
-            <p>Register quickly and confirm the best next step for your learning path.</p>
+            <p>Register quickly and get a clear path to learning and employer recognition.</p>
           </div>
           <div class="step">
             <div class="num">3</div>
             <strong>Learn</strong>
-            <p>Complete practical modules and assessments with clear support.</p>
+            <p>Complete practical modules and assessments designed for job readiness.</p>
           </div>
           <div class="step">
             <div class="num">4</div>
             <strong>Certify</strong>
-            <p>Receive your certificate and continue with career preparation support.</p>
+            <p>Receive a verified GTI certificate and unlock access to job and employer opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>Certification &amp; employer trust</h2>
+          <p>We are open and transparent about accreditation status, employer verification, and the value of GTI-issued certificates.</p>
+        </div>
+
+        <div class="faq-wrap">
+          <div class="faq">
+            <h3>Is GTI accredited?</h3>
+            <p>GTI is currently pursuing NITA accreditation. While that process is underway, GTI issues Certificates of Completion and professional certificates for learners and international employers.</p>
+          </div>
+
+          <div class="faq">
+            <h3>How do employers verify certificates?</h3>
+            <p>Each GTI certificate includes a unique certificate ID and public verification page. Employers can verify completion details before hiring or onboarding.</p>
+          </div>
+
+          <div class="faq">
+            <h3>Can international learners use these certificates?</h3>
+            <p>Yes. GTI certificates are designed for practical skill validation and can be used for employer and recruitment processes while international accreditation continues.</p>
+          </div>
+
+          <div class="faq">
+            <h3>How do we prevent fake or misleading certificates?</h3>
+            <p>GTI uses unique certificate IDs, verification pages, skill-aligned course outcomes, and employer consent-based candidate sharing to improve trust and reduce fraud.</p>
           </div>
         </div>
       </div>
@@ -246,7 +326,7 @@
       <div class="container">
         <div class="section-head">
           <h2>Apply or request employer pricing</h2>
-          <p>Complete the short application form below or contact us directly for enrolment guidance and pricing support.</p>
+          <p>Complete the short application form below or contact us directly for enrolment guidance, group pricing and employer partnership details.</p>
         </div>
 
         <div class="form-grid">
@@ -273,12 +353,13 @@
                   <option>Facility Management Fundamentals</option>
                   <option>Professional Bundle — Facilities &amp; Safety</option>
                   <option>Basic Caregiving &amp; Client Support</option>
+                  <option>Pre-Interview Readiness</option>
                 </select>
               </div>
 
               <div class="row">
                 <label for="message">Brief note</label>
-                <textarea id="message" name="message" placeholder="Tell us about your goals, country, or employer requirements."></textarea>
+                <textarea id="message" name="message" placeholder="Tell us about your goals, your target market, or employer needs."></textarea>
               </div>
 
               <div class="row">
@@ -289,7 +370,7 @@
 
           <aside class="aside-card">
             <h4 style="margin:0 0 8px;color:var(--navy)">Need employer pricing?</h4>
-            <p class="muted" style="margin:0 0 12px">Reach out for group pricing, sponsorship and training packages for organisations and international teams.</p>
+            <p class="small-muted" style="margin:0 0 12px">Reach out for group pricing, sponsorship, and training packages for organisations and international recruitment partners.</p>
             <div style="margin-top:12px;line-height:1.8">
               <strong>Contact</strong><br />
               Email: <a href="mailto:gruis.edu@gmail.com">gruis.edu@gmail.com</a><br />
@@ -308,9 +389,10 @@
         International online learning for careers, care and workplace readiness.
       </div>
 
-      <div class="muted">
+      <div class="small-muted">
         Head office: Nairobi, Kenya<br />
-        Email: <a href="mailto:gruis.edu@gmail.com">gruis.edu@gmail.com</a> · WhatsApp: <a href="https://wa.me/12133378634" target="_blank" rel="noreferrer">+1 (213) 337-8634</a>
+        Email: <a href="mailto:gruis.edu@gmail.com">gruis.edu@gmail.com</a> · WhatsApp: <a href="https://wa.me/12133378634" target="_blank" rel="noreferrer">+1 (213) 337-8634</a><br />
+        Accreditation status: NITA accreditation in progress.
       </div>
     </div>
   </footer>

@@ -4,14 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Gruis Training Institute</title>
-    <meta name="description" content="Gruis Training Institute offers online practical courses, facility management, caregiving, job support and student services.">
+    <meta name="description" content="Gruis Training Institute offers practical online learning in facility management, caregiving and workplace skills.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg:#f8f6f0;--surface:#fff;--ink:#14284b;--muted:#4f5b72;--line:#dcd9cf;--accent:#9a6f1e;--accent-ink:#fff;--sky:#e6edf6;--btn:#1b3a6b;--btn-ink:#fff;--gold:#b8862b;--green:#1c8e62;--soft:#f3f7fb;
-            --navy:#12365a;--blue:#1f5aa6;--blue-soft:#edf5ff;--light:#f4f7fb;--shadow:0 12px 30px rgba(16,39,63,.12);--radius:18px;
+        :root{
+            --bg:#f7f4ee;--surface:#fff;--ink:#14284b;--muted:#4f5b72;--line:#dcd9cf;--accent:#9a6f1e;--accent-ink:#fff;--sky:#e6edf6;--btn:#1b3a6b;--btn-ink:#fff;--gold:#b8862b;--navy:#12365a;--blue:#1f5aa6;--blue-soft:#edf5ff;--soft:#f3f7fb;--shadow:0 12px 30px rgba(16,39,63,.12);--radius:18px;
         }
         *{box-sizing:border-box}
         html{scroll-behavior:smooth;scroll-padding-top:20px}
@@ -19,7 +18,7 @@
         h1,h2,h3,h4{font-family:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;line-height:1.1;margin:0;letter-spacing:-.02em}
         a{color:inherit;text-decoration:none}
         img{max-width:100%;display:block}
-        button,input,select{font:inherit}
+        button,input,select,textarea{font:inherit}
         :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
         .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
         .topbar{background:var(--navy);color:#edfaff;font-size:.8rem;padding:10px 0}
@@ -117,6 +116,17 @@
         .policy-box ul{color:var(--muted)}
         .cta-bar{background:linear-gradient(135deg,#12365a,#1d5fa7);border-radius:22px;color:#fff;padding:28px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;box-shadow:var(--shadow)}
         .cta-bar h3{font-size:1.8rem}
+        .application-form{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow)}
+        .application-form h3{margin:0 0 12px;color:var(--navy);font-size:1.5rem}
+        .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+        .form-grid .field{display:flex;flex-direction:column;gap:6px}
+        .field.full{grid-column:1 / -1}
+        .field label{font-weight:600;font-size:.95rem;color:var(--ink)}
+        .field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--soft);color:var(--ink)}
+        .field textarea{min-height:110px;resize:vertical}
+        .checkbox{display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;margin:12px 0}
+        .checkbox input{margin-top:2px}
+        .muted-note{font-size:.9rem;color:var(--muted)}
         .chat-widget{position:fixed;right:18px;bottom:18px;z-index:80;width:min(360px,calc(100vw - 24px))}
         .chat-toggle{width:100%;background:var(--navy);border:none;color:#fff;padding:15px 18px;border-radius:18px 18px 0 18px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;box-shadow:0 16px 36px rgba(10,29,43,.26)}
         .chat-box{display:none;background:#fff;border:1px solid var(--line);border-radius:18px 18px 18px 0;overflow:hidden;box-shadow:0 18px 40px rgba(10,29,43,.2)}
@@ -124,15 +134,15 @@
         .chat-header{background:var(--navy);color:#fff;padding:12px 16px;font-weight:700}
         .chat-body{background:#f7fafd;max-height:310px;overflow:auto;padding:12px}
         .msg{max-width:88%;padding:10px 12px;border-radius:12px;margin:8px 0;font-size:.96rem;line-height:1.5}
-        .msg.bot{background:#fff;border:1px solid var(--line);color:var(--text);margin-right:auto}
+        .msg.bot{background:#fff;border:1px solid var(--line);color:var(--ink);margin-right:auto}
         .msg.user{background:var(--blue);color:#fff;margin-left:auto}
         .chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:#fff}
         .chat-form input{flex:1;padding:11px 12px;border:1px solid var(--line);border-radius:10px;outline:none;background:#f8fafc}
         .chat-form button{background:var(--blue);border:none;color:#fff;font-weight:700;border-radius:10px;padding:11px 14px;cursor:pointer}
         footer{padding:32px 0 44px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:24px}
-        @media (max-width:980px){.hero,.band{grid-template-columns:1fr}.hero{padding-top:28px}.pricing-grid,.affiliate-box{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr}.courses{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.pkg{grid-template-columns:1fr;padding:22px}}
-        @media (max-width:820px){nav a:not(.btn):not(.btn-light):not(.btn-outline){display:none}.hero{padding-left:0;padding-right:0}.cert{transform:none}.menu-toggle{display:block}.nav{position:relative;min-height:68px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(18,54,90,.96);padding:14px 18px 18px;border-top:1px solid rgba(255,255,255,.12);flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.nav-actions{display:none}.band{padding:28px}.wrap{padding:0 18px}}
-        @media (max-width:560px){.courses{grid-template-columns:1fr}.pricing-grid,.feature-grid{grid-template-columns:1fr}.hero h1{font-size:2.6rem}.cta{flex-direction:column;align-items:stretch}.cta .btn{width:100%}}
+        @media (max-width:980px){.hero,.band,.affiliate-box{grid-template-columns:1fr}.featured-grid{grid-template-columns:1fr}.pricing-grid{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr}.pkg{grid-template-columns:1fr;padding:22px}} 
+        @media (max-width:820px){nav a:not(.btn):not(.btn-light):not(.btn-outline){display:none}.hero{padding-top:28px}.cert{transform:none}.menu-toggle{display:block}.nav{position:relative;min-height:68px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(18,54,90,.96);padding:14px 18px 18px;border-top:1px solid rgba(255,255,255,.12);flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.nav-actions{display:none}.band{padding:28px}.form-grid{grid-template-columns:1fr}.wrap{padding:0 18px}}
+        @media (max-width:560px){.cta{flex-direction:column;align-items:stretch}.cta .btn{width:100%}.hero h1{font-size:2.6rem}.courses{grid-template-columns:1fr}.pricing-grid,.feature-grid{grid-template-columns:1fr}}
         @media print{body *{visibility:hidden}.certprint,.certprint *{visibility:visible}.certprint{position:absolute;left:0;top:0;width:100%}}
     </style>
 </head>
@@ -186,9 +196,7 @@
                 <div style="display:flex;justify-content:center;margin:10px 0 0"><div id="hero-qr" style="width:92px;height:92px;border:2px solid #1b3a6b;border-radius:8px;display:grid;place-items:center;background:#fff;color:#1b3a6b;font-weight:800">QR</div></div>
                 <div class="row">
                     <span>Certificate no. GR-C-000001</span>
-                    <span class="seal" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l7 2.5v6.5c0 5.1-3.1 9.6-7 12-3.9-2.4-7-6.9-7-12V5l7-2.5zm-1 7.5h2v3h3v2h-3v3h-2v-3H8v-2h3V10z" fill="#fff"/></svg>
-                    </span>
+                    <span class="seal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l7 2.5v6.5c0 5.1-3.1 9.6-7 12-3.9-2.4-7-6.9-7-12V5l7-2.5zm-1 7.5h2v3h3v2h-3v3h-2v-3H8v-2h3V10z" fill="#fff"/></svg></span>
                 </div>
             </div>
         </div>
@@ -206,82 +214,22 @@
 
             <h3 class="grp">Facility management</h3>
             <div class="courses">
-                <article class="course">
-                    <h3>Facility Management Fundamentals</h3>
-                    <div class="meta">3–4 hours</div>
-                    <div class="fee">KES 2,500</div>
-                    <a class="btn" href="#register" style="margin-top:14px">View Course</a>
-                </article>
-                <article class="course">
-                    <h3>Facility Operations &amp; Maintenance</h3>
-                    <div class="meta">4 hours</div>
-                    <div class="fee">KES 3,500</div>
-                    <a class="btn" href="#register" style="margin-top:14px">View Course</a>
-                </article>
-                <article class="course">
-                    <h3>Security &amp; Facility Management</h3>
-                    <div class="meta">4 hours</div>
-                    <div class="fee">KES 3,500</div>
-                    <a class="btn" href="#register" style="margin-top:14px">View Course</a>
-                </article>
-                <article class="course">
-                    <h3>HSE for Facility Officers</h3>
-                    <div class="meta">4 hours</div>
-                    <div class="fee">KES 3,500</div>
-                    <a class="btn" href="#register" style="margin-top:14px">View Course</a>
-                </article>
-                <article class="course">
-                    <h3>SOP Development &amp; Documentation</h3>
-                    <div class="meta">3 hours</div>
-                    <div class="fee">KES 4,000</div>
-                    <a class="btn" href="#register" style="margin-top:14px">View Course</a>
-                </article>
-                <article class="course">
-                    <h3>Contractor &amp; Vendor Management</h3>
-                    <div class="meta">3 hours</div>
-                    <div class="fee">KES 3,500</div>
-                    <a class="btn" href="#register" style="margin-top:14px">View Course</a>
-                </article>
+                <article class="course"><h3>Facility Management Fundamentals</h3><div class="meta">3–4 hours</div><div class="fee">KES 2,500</div><a class="btn" href="#register" style="margin-top:14px">View Course</a></article>
+                <article class="course"><h3>Facility Operations &amp; Maintenance</h3><div class="meta">4 hours</div><div class="fee">KES 3,500</div><a class="btn" href="#register" style="margin-top:14px">View Course</a></article>
+                <article class="course"><h3>Security &amp; Facility Management</h3><div class="meta">4 hours</div><div class="fee">KES 3,500</div><a class="btn" href="#register" style="margin-top:14px">View Course</a></article>
+                <article class="course"><h3>HSE for Facility Officers</h3><div class="meta">4 hours</div><div class="fee">KES 3,500</div><a class="btn" href="#register" style="margin-top:14px">View Course</a></article>
+                <article class="course"><h3>SOP Development &amp; Documentation</h3><div class="meta">3 hours</div><div class="fee">KES 4,000</div><a class="btn" href="#register" style="margin-top:14px">View Course</a></article>
+                <article class="course"><h3>Contractor &amp; Vendor Management</h3><div class="meta">3 hours</div><div class="fee">KES 3,500</div><a class="btn" href="#register" style="margin-top:14px">View Course</a></article>
             </div>
 
             <h3 class="grp">Caregiving and home care</h3>
             <div class="courses">
-                <article class="course">
-                    <h3>Basic Caregiving</h3>
-                    <div class="meta">4–6 hours</div>
-                    <div class="fee">KES 4,000</div>
-                    <a class="btn" href="#register" style="margin-top:14px">View Course</a>
-                </article>
-                <article class="course">
-                    <h3>Basic Elderly Care</h3>
-                    <div class="meta">3–4 hours</div>
-                    <div class="fee">KES 3,500</div>
-                    <a class="btn" href="#register" style="margin-top:14px">View Course</a>
-                </article>
-                <article class="course">
-                    <h3>Home Care Fundamentals</h3>
-                    <div class="meta">4 hours</div>
-                    <div class="fee">KES 4,000</div>
-                    <a class="btn" href="#register" style="margin-top:14px">View Course</a>
-                </article>
-                <article class="course">
-                    <h3>Childcare &amp; Safety Basics</h3>
-                    <div class="meta">3–4 hours</div>
-                    <div class="fee">KES 3,500</div>
-                    <a class="btn" href="#register" style="margin-top:14px">View Course</a>
-                </article>
-                <article class="course">
-                    <h3>First Aid Awareness for Caregivers</h3>
-                    <div class="meta">3 hours</div>
-                    <div class="fee">KES 3,500</div>
-                    <a class="btn" href="#register" style="margin-top:14px">View Course</a>
-                </article>
-                <article class="course">
-                    <h3>Professional Caregiver Skills</h3>
-                    <div class="meta">1–2 days</div>
-                    <div class="fee">KES 8,000</div>
-                    <a class="btn" href="#register" style="margin-top:14px">View Course</a>
-                </article>
+                <article class="course"><h3>Basic Caregiving</h3><div class="meta">4–6 hours</div><div class="fee">KES 4,000</div><a class="btn" href="#register" style="margin-top:14px">View Course</a></article>
+                <article class="course"><h3>Basic Elderly Care</h3><div class="meta">3–4 hours</div><div class="fee">KES 3,500</div><a class="btn" href="#register" style="margin-top:14px">View Course</a></article>
+                <article class="course"><h3>Home Care Fundamentals</h3><div class="meta">4 hours</div><div class="fee">KES 4,000</div><a class="btn" href="#register" style="margin-top:14px">View Course</a></article>
+                <article class="course"><h3>Childcare &amp; Safety Basics</h3><div class="meta">3–4 hours</div><div class="fee">KES 3,500</div><a class="btn" href="#register" style="margin-top:14px">View Course</a></article>
+                <article class="course"><h3>First Aid Awareness for Caregivers</h3><div class="meta">3 hours</div><div class="fee">KES 3,500</div><a class="btn" href="#register" style="margin-top:14px">View Course</a></article>
+                <article class="course"><h3>Professional Caregiver Skills</h3><div class="meta">1–2 days</div><div class="fee">KES 8,000</div><a class="btn" href="#register" style="margin-top:14px">View Course</a></article>
             </div>
 
             <div class="pkg">
@@ -293,12 +241,7 @@
                 </div>
                 <div>
                     <ul>
-                        <li>Introduction to caregiving</li>
-                        <li>Roles and responsibilities of a caregiver</li>
-                        <li>Personal hygiene and infection prevention</li>
-                        <li>Nutrition and hydration</li>
-                        <li>Safe mobility and moving patients</li>
-                        <li>Communication and emotional support</li>
+                        <li>Introduction to caregiving</li><li>Roles and responsibilities of a caregiver</li><li>Personal hygiene and infection prevention</li><li>Nutrition and hydration</li><li>Safe mobility and moving patients</li><li>Communication and emotional support</li>
                     </ul>
                 </div>
             </div>
@@ -319,49 +262,17 @@
             <h2>Build Your Career</h2>
             <p class="sub">Use skills that are practical, flexible, and easy to apply in everyday work environments.</p>
             <div class="feature-grid">
-                <div class="feature-box">
-                    <h3>Career Pathways</h3>
-                    <ul>
-                        <li>Facility management and operations support</li>
-                        <li>Caregiving and elder care roles</li>
-                        <li>Security and safety operations</li>
-                        <li>Workplace communication and service excellence</li>
-                    </ul>
-                </div>
-                <div class="feature-box">
-                    <h3>How learning helps</h3>
-                    <ul>
-                        <li>Practical learning focused on real responsibilities</li>
-                        <li>Flexible online study and coursework access</li>
-                        <li>Assessment-based completion and certificate pathways</li>
-                        <li>Career confidence through structured progression</li>
-                    </ul>
-                </div>
+                <div class="feature-box"><h3>Career Pathways</h3><ul><li>Facility management and operations support</li><li>Caregiving and elder care roles</li><li>Security and safety operations</li><li>Workplace communication and service excellence</li></ul></div>
+                <div class="feature-box"><h3>How learning helps</h3><ul><li>Practical learning focused on real responsibilities</li><li>Flexible online study and coursework access</li><li>Assessment-based completion and certificate pathways</li><li>Career confidence through structured progression</li></ul></div>
             </div>
         </section>
 
         <section id="student-services">
-            <h2>Student services</h2>
+            <h2>Student Services</h2>
             <p class="sub">Support that helps students learn with confidence from enrolment through certification.</p>
             <div class="feature-grid">
-                <div class="feature-box">
-                    <h3>Course support</h3>
-                    <ul>
-                        <li>Student login and registration support</li>
-                        <li>Course guidance and learning support</li>
-                        <li>Certificate and assessment follow-up</li>
-                        <li>FAQ support for fees and enrolment</li>
-                    </ul>
-                </div>
-                <div class="feature-box">
-                    <h3>Verification &amp; access</h3>
-                    <ul>
-                        <li>Certificate verification process</li>
-                        <li>Account and course access support</li>
-                        <li>Help with payment and policy questions</li>
-                        <li>Clear guidance for current services and planned features</li>
-                    </ul>
-                </div>
+                <div class="feature-box"><h3>Course support</h3><ul><li>Student login and registration support</li><li>Course guidance and learning support</li><li>Certificate and assessment follow-up</li><li>FAQ support for fees and enrolment</li></ul></div>
+                <div class="feature-box"><h3>Verification &amp; access</h3><ul><li>Certificate verification process</li><li>Account and course access support</li><li>Help with payment and policy questions</li><li>Clear guidance for current services and planned features</li></ul></div>
             </div>
         </section>
 
@@ -369,112 +280,26 @@
             <h2>Learning at GTI</h2>
             <p class="sub">A quick look at what you can study and what you receive.</p>
             <div class="gallery">
-                <figure class="shot">
-                    <svg viewBox="0 0 300 190" role="img" aria-label="Live online classes">
-                        <rect width="300" height="190" fill="#e6edf6"/>
-                        <rect x="60" y="30" width="180" height="108" rx="8" fill="#fff"/><rect x="76" y="46" width="148" height="18" rx="4" fill="#d7e6f5"/><rect x="76" y="76" width="102" height="10" rx="4" fill="#9dbde5"/><rect x="76" y="94" width="120" height="10" rx="4" fill="#cfe0f5"/><rect x="76" y="112" width="98" height="10" rx="4" fill="#b2c9eb"/><circle cx="214" cy="73" r="20" fill="#f0c870"/><path d="M204 72l7 7 13-16" stroke="#1b3a6b" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    </svg>
-                    <figcaption><strong>Live online classes</strong>Flexible study with direct guidance and assessment support.</figcaption>
-                </figure>
-                <figure class="shot">
-                    <svg viewBox="0 0 300 190" role="img" aria-label="Facility management">
-                        <rect width="300" height="190" fill="#f4ead2"/>
-                        <rect x="48" y="60" width="204" height="96" rx="10" fill="#fff"/><rect x="70" y="84" width="160" height="12" rx="6" fill="#d7caae"/><rect x="70" y="106" width="112" height="12" rx="6" fill="#e5d7ba"/><rect x="70" y="128" width="140" height="12" rx="6" fill="#d7caae"/><rect x="210" y="50" width="16" height="90" rx="8" fill="#1b3a6b"/>
-                    </svg>
-                    <figcaption><strong>Facility management</strong>Practical skills for operations, safety and workplace systems.</figcaption>
-                </figure>
-                <figure class="shot">
-                    <svg viewBox="0 0 300 190" role="img" aria-label="Caregiving skills">
-                        <rect width="300" height="190" fill="#eaf0f7"/>
-                        <circle cx="130" cy="72" r="28" fill="#f0c870"/><path d="M90 129c10-18 28-28 40-28s30 10 40 28" fill="#9aaecb"/><rect x="167" y="60" width="72" height="66" rx="12" fill="#dfeaf7"/><path d="M178 76h50M178 90h50M178 104h50" stroke="#1b3a6b" stroke-width="4" stroke-linecap="round"/>
-                    </svg>
-                    <figcaption><strong>Caregiving skills</strong>Supportive, human-centred learning for daily care environments.</figcaption>
-                </figure>
+                <figure class="shot"><svg viewBox="0 0 300 190" role="img" aria-label="Live online classes"><rect width="300" height="190" fill="#e6edf6"/><rect x="60" y="30" width="180" height="108" rx="8" fill="#fff"/><rect x="76" y="46" width="148" height="18" rx="4" fill="#d7e6f5"/><rect x="76" y="76" width="102" height="10" rx="4" fill="#9dbde5"/><rect x="76" y="94" width="120" height="10" rx="4" fill="#cfe0f5"/><rect x="76" y="112" width="98" height="10" rx="4" fill="#b2c9eb"/><circle cx="214" cy="73" r="20" fill="#f0c870"/><path d="M204 72l7 7 13-16" stroke="#1b3a6b" stroke-width="4" fill="none" stroke-linecap="round"/></svg><figcaption><strong>Live online classes</strong>Flexible study with direct guidance and assessment support.</figcaption></figure>
+                <figure class="shot"><svg viewBox="0 0 300 190" role="img" aria-label="Facility management"><rect width="300" height="190" fill="#f4ead2"/><rect x="48" y="60" width="204" height="96" rx="10" fill="#fff"/><rect x="70" y="84" width="160" height="12" rx="6" fill="#d7caae"/><rect x="70" y="106" width="112" height="12" rx="6" fill="#e5d7ba"/><rect x="70" y="128" width="140" height="12" rx="6" fill="#d7caae"/><rect x="210" y="50" width="16" height="90" rx="8" fill="#1b3a6b"/></svg><figcaption><strong>Facility management</strong>Practical skills for operations, safety and workplace systems.</figcaption></figure>
+                <figure class="shot"><svg viewBox="0 0 300 190" role="img" aria-label="Caregiving skills"><rect width="300" height="190" fill="#eaf0f7"/><circle cx="130" cy="72" r="28" fill="#f0c870"/><path d="M90 129c10-18 28-28 40-28s30 10 40 28" fill="#9aaecb"/><rect x="167" y="60" width="72" height="66" rx="12" fill="#dfeaf7"/><path d="M178 76h50M178 90h50M178 104h50" stroke="#1b3a6b" stroke-width="4" stroke-linecap="round"/></svg><figcaption><strong>Caregiving skills</strong>Supportive, human-centred learning for daily care environments.</figcaption></figure>
             </div>
         </section>
 
         <section id="fees">
             <h2>Fees and payment</h2>
             <p class="sub">Every course has a one-time registration fee plus the course fee. Pay by M-Pesa or bank transfer.</p>
-            <div class="reg">
-                <div><strong>Registration fee</strong><br>KES 1,000 per course, paid once. It gives you access to the course.</div>
-                <div><strong>Course fee</strong><br>The fee shown on each course card is the tuition cost for that course.</div>
-                <div><strong>Payment methods</strong><br>M-Pesa Paybill: 600100<br>Bank transfer: Stanbic Bank</div>
-            </div>
-            <div id="fees-pay">
-                <div class="band" style="background:var(--surface);color:var(--ink);border:1px solid var(--line)">
-                    <div>
-                        <h3 style="font-size:22px;margin-bottom:10px">Pay by M-Pesa Paybill</h3>
-                        <p style="margin:0 0 6px"><strong>Business number:</strong> 600100</p>
-                        <p style="margin:0 0 6px"><strong>Account number:</strong> 0100016742947</p>
-                        <p style="margin:0 0 14px"><strong>Account name:</strong> Gruis Training Institute</p>
-                        <ol style="margin:0;padding-left:20px">
-                            <li>Open M-Pesa and choose Lipa na M-Pesa, then Paybill.</li>
-                            <li>Enter the business number and account number.</li>
-                            <li>Enter the amount in KES and your M-Pesa PIN.</li>
-                            <li>Send us the confirmation message with your full name and course.</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <h3 style="font-size:22px;margin-bottom:10px">Pay by bank transfer</h3>
-                        <p style="margin:0 0 6px"><strong>Bank:</strong> Stanbic Bank</p>
-                        <p style="margin:0 0 6px"><strong>Account name:</strong> Gruis Training Institute</p>
-                        <p style="margin:0 0 6px"><strong>Account number:</strong> 0100016742947</p>
-                        <p style="margin:0"><strong>Branch:</strong> Thika</p>
-                    </div>
-                </div>
-            </div>
+            <div class="reg"><div><strong>Registration fee</strong><br>KES 1,000 per course, paid once. It gives you access to the course.</div><div><strong>Course fee</strong><br>The fee shown on each course card is the tuition cost for that course.</div><div><strong>Payment methods</strong><br>M-Pesa Paybill: 600100<br>Bank transfer: Stanbic Bank</div></div>
+            <div id="fees-pay"><div class="band" style="background:var(--surface);color:var(--ink);border:1px solid var(--line)"><div><h3 style="font-size:22px;margin-bottom:10px">Pay by M-Pesa Paybill</h3><p style="margin:0 0 6px"><strong>Business number:</strong> 600100</p><p style="margin:0 0 6px"><strong>Account number:</strong> 0100016742947</p><p style="margin:0 0 14px"><strong>Account name:</strong> Gruis Training Institute</p><ol style="margin:0;padding-left:20px"><li>Open M-Pesa and choose Lipa na M-Pesa, then Paybill.</li><li>Enter the business number and account number.</li><li>Enter the amount in KES and your M-Pesa PIN.</li><li>Send us the confirmation message with your full name and course.</li></ol></div><div><h3 style="font-size:22px;margin-bottom:10px">Pay by bank transfer</h3><p style="margin:0 0 6px"><strong>Bank:</strong> Stanbic Bank</p><p style="margin:0 0 6px"><strong>Account name:</strong> Gruis Training Institute</p><p style="margin:0 0 6px"><strong>Account number:</strong> 0100016742947</p><p style="margin:0"><strong>Branch:</strong> Thika</p></div></div></div>
         </section>
 
         <section id="pricing">
             <h2>Course fees &amp; bundles</h2>
             <p class="sub">Transparent pricing, clear registration charges, and bundle savings.</p>
             <div class="pricing-grid">
-                <div class="price-card">
-                    <span class="plan-label">Single course</span>
-                    <h3>Caregiving</h3>
-                    <div class="amount">KES 4,000 <small>Tuition</small></div>
-                    <ul>
-                        <li>Registration fee: KES 1,000</li>
-                        <li>Course access</li>
-                        <li>Assessment and certificate</li>
-                    </ul>
-                    <div class="pay-row">
-                        <span class="pay-pill" data-label="Card">💳</span>
-                        <span class="pay-pill" data-label="M-Pesa">📱</span>
-                        <span class="pay-pill" data-label="Bank">🏦</span>
-                    </div>
-                </div>
-                <div class="price-card featured">
-                    <span class="plan-label">Most popular</span>
-                    <h3>Facility bundle</h3>
-                    <div class="amount">KES 17,500 <small>Total</small></div>
-                    <ul>
-                        <li>6-course bundle</li>
-                        <li>One registration fee applies once</li>
-                        <li>Suggested total package value</li>
-                    </ul>
-                    <div class="pay-row">
-                        <span class="pay-pill" data-label="Card">💳</span>
-                        <span class="pay-pill" data-label="M-Pesa">📱</span>
-                        <span class="pay-pill" data-label="Bank">🏦</span>
-                    </div>
-                </div>
-                <div class="price-card">
-                    <span class="plan-label">Bundle</span>
-                    <h3>Caregiving bundle</h3>
-                    <div class="amount">KES 17,500 <small>Total</small></div>
-                    <ul>
-                        <li>Care pathway bundle</li>
-                        <li>Clear total before purchase</li>
-                        <li>Support and certificate</li>
-                    </ul>
-                    <div class="pay-row">
-                        <span class="pay-pill" data-label="Card">💳</span>
-                        <span class="pay-pill" data-label="M-Pesa">📱</span>
-                        <span class="pay-pill" data-label="Bank">🏦</span>
-                    </div>
-                </div>
+                <div class="price-card"><span class="plan-label">Single course</span><h3>Caregiving</h3><div class="amount">KES 4,000 <small>Tuition</small></div><ul><li>Registration fee: KES 1,000</li><li>Course access</li><li>Assessment and certificate</li></ul><div class="pay-row"><span class="pay-pill" data-label="Card">💳</span><span class="pay-pill" data-label="M-Pesa">📱</span><span class="pay-pill" data-label="Bank">🏦</span></div></div>
+                <div class="price-card featured"><span class="plan-label">Most popular</span><h3>Facility bundle</h3><div class="amount">KES 17,500 <small>Total</small></div><ul><li>6-course bundle</li><li>One registration fee applies once</li><li>Suggested total package value</li></ul><div class="pay-row"><span class="pay-pill" data-label="Card">💳</span><span class="pay-pill" data-label="M-Pesa">📱</span><span class="pay-pill" data-label="Bank">🏦</span></div></div>
+                <div class="price-card"><span class="plan-label">Bundle</span><h3>Caregiving bundle</h3><div class="amount">KES 17,500 <small>Total</small></div><ul><li>Care pathway bundle</li><li>Clear total before purchase</li><li>Support and certificate</li></ul><div class="pay-row"><span class="pay-pill" data-label="Card">💳</span><span class="pay-pill" data-label="M-Pesa">📱</span><span class="pay-pill" data-label="Bank">🏦</span></div></div>
             </div>
         </section>
 
@@ -484,22 +309,33 @@
                     <span class="eyebrow" style="display:inline-flex;background:var(--blue-soft);color:var(--navy);border:1px solid #dfeafc;padding:7px 12px;border-radius:999px;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800;">Affiliate pilot</span>
                     <h3>Earn with GTI</h3>
                     <p>Help people discover practical skills and career-development courses while promoting GTI services. This programme is currently being introduced as a controlled pilot and will operate only under approved referral and payment terms.</p>
-                    <div class="commission-note">
-                        Proposed commission:
-                        <strong>15%</strong>
-                        of eligible tuition actually received, excluding registration fees.
-                        <div style="margin-top:8px;font-size:.88rem;opacity:.8;font-weight:600;">This rate is proposed only and must be confirmed before any binding commitment.</div>
+                    <div class="commission-note">Proposed commission:<strong>15%</strong>of eligible tuition actually received, excluding registration fees.<div style="margin-top:8px;font-size:.88rem;opacity:.8;font-weight:600;">This rate is proposed only and must be confirmed before any binding commitment.</div></div>
+                </div>
+                <div class="policy-box"><h3>Affiliate programme basics</h3><ul><li>Application review and approval required</li><li>No guaranteed income or automatic payout promise</li><li>Referral checks and payout decisions remain manual</li><li>Final terms and commission approval must be confirmed</li></ul></div>
+            </div>
+        </section>
+
+        <section id="apply-affiliate">
+            <h2>Apply to become a GTI affiliate</h2>
+            <p class="sub">The affiliate pilot is a manual process. Use this form to express interest and send your details for review.</p>
+            <div class="application-form">
+                <h3>Affiliate interest form</h3>
+                <form id="affiliate-form" action="https://wa.me/12133378634" method="get" target="_blank">
+                    <div class="form-grid">
+                        <div class="field"><label for="aff-name">Full name</label><input id="aff-name" name="text" required placeholder="Your full name"></div>
+                        <div class="field"><label for="aff-country">Country</label><select id="aff-country" name="country"><option>Kenya</option><option>Uganda</option><option>Tanzania</option><option>Qatar</option><option>Other</option></select></div>
+                        <div class="field"><label for="aff-email">Email</label><input id="aff-email" type="email" name="email" required placeholder="you@example.com"></div>
+                        <div class="field"><label for="aff-phone">Phone / WhatsApp</label><input id="aff-phone" type="tel" name="phone" required placeholder="+254 ..."></div>
+                        <div class="field full"><label for="aff-channels">Preferred promotion channels</label><textarea id="aff-channels" name="channels" placeholder="Instagram, WhatsApp, blog, Facebook, community groups, YouTube, etc."></textarea></div>
+                        <div class="field full">
+                            <label class="checkbox"><input type="checkbox" required> I agree to share my contact details for GTI affiliate review and to be contacted by GTI regarding the pilot programme.</label>
+                        </div>
                     </div>
-                </div>
-                <div class="policy-box">
-                    <h3>Affiliate programme basics</h3>
-                    <ul>
-                        <li>Application review and approval required</li>
-                        <li>No guaranteed income or automatic payout promise</li>
-                        <li>Referral checks and payout decisions remain manual</li>
-                        <li>Final terms and commission approval must be confirmed</li>
-                    </ul>
-                </div>
+                    <div style="margin-top:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+                        <button class="btn" type="submit">Submit interest</button>
+                        <span class="muted-note">This is a manual pilot. No live commission dashboard or automatic payout is claimed.</span>
+                    </div>
+                </form>
             </div>
         </section>
 
@@ -531,128 +367,75 @@
         </section>
 
         <section id="enroll">
-            <div class="contact">
-                <h2>Ready to start?</h2>
-                <p>Pay by M-Pesa or bank transfer, then send us your confirmation and the course you chose. We will reply with your class dates.</p>
-                <div class="cta" style="justify-content:center">
-                    <a class="btn" href="https://wa.me/12133378634?text=Hello%20Gruis%20Training%20Institute%2C%20I%20would%20like%20to%20enroll.">WhatsApp us</a>
-                    <a class="btn alt" href="mailto:gruis.edu@gmail.com?subject=Enrollment%20enquiry">Email us</a>
-                </div>
-                <p style="margin:20px auto 0;font-size:15px">Phone / WhatsApp: <a href="tel:+12133378634">+1 (213) 337-8634</a><br>Email: <a href="mailto:gruis.edu@gmail.com">gruis.edu@gmail.com</a><br>Location: Lusail, Doha, Qatar</p>
-            </div>
+            <div class="contact"><h2>Ready to start?</h2><p>Pay by M-Pesa or bank transfer, then send us your confirmation and the course you chose. We will reply with your class dates.</p><div class="cta" style="justify-content:center"><a class="btn" href="https://wa.me/12133378634?text=Hello%20Gruis%20Training%20Institute%2C%20I%20would%20like%20to%20enroll.">WhatsApp us</a><a class="btn alt" href="mailto:gruis.edu@gmail.com?subject=Enrollment%20enquiry">Email us</a></div><p style="margin:20px auto 0;font-size:15px">Phone / WhatsApp: <a href="tel:+12133378634">+1 (213) 337-8634</a><br>Email: <a href="mailto:gruis.edu@gmail.com">gruis.edu@gmail.com</a><br>Location: Lusail, Doha, Qatar</p></div>
         </section>
     </main>
 
-    <footer>
-        <div class="wrap">
-            © 2026 Gruis Training Institute. All rights reserved.<br>
-            Lusail, Doha, Qatar | +1 (213) 337-8634 | gruis.edu@gmail.com
-        </div>
-    </footer>
+    <footer><div class="wrap">© 2026 Gruis Training Institute. All rights reserved.<br>Lusail, Doha, Qatar | +1 (213) 337-8634 | gruis.edu@gmail.com</div></footer>
 
     <div class="chat-widget">
-        <div class="chat-box" id="chatBox">
-            <div class="chat-header">GTI AI Assistant</div>
-            <div class="chat-body" id="chatBody">
-                <div class="msg bot">Hello! I can help with courses, pricing, student support, and the affiliate pilot. Ask me anything.</div>
-            </div>
-            <div class="chat-form">
-                <input id="chatInput" type="text" placeholder="Ask a question..." />
-                <button id="sendBtn">Send</button>
-            </div>
-        </div>
+        <div class="chat-box" id="chatBox"><div class="chat-header">GTI AI Assistant</div><div class="chat-body" id="chatBody"><div class="msg bot">Hello! I can help with courses, pricing, student support, and the affiliate pilot. Ask me anything.</div></div><div class="chat-form"><input id="chatInput" type="text" placeholder="Ask a question..." /><button id="sendBtn">Send</button></div></div>
         <button class="chat-toggle" id="chatToggle">AI Assistant</button>
     </div>
 
     <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (menuToggle && navLinks) {
-            menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-        }
+        const menuToggle=document.querySelector('.menu-toggle');
+        const navLinks=document.querySelector('.nav-links');
+        if(menuToggle&&navLinks){menuToggle.addEventListener('click',()=>navLinks.classList.toggle('open'))}
 
-        const chatBox = document.getElementById('chatBox');
-        const chatToggle = document.getElementById('chatToggle');
-        const chatInput = document.getElementById('chatInput');
-        const chatBody = document.getElementById('chatBody');
-        const sendBtn = document.getElementById('sendBtn');
+        const chatBox=document.getElementById('chatBox');
+        const chatToggle=document.getElementById('chatToggle');
+        const chatInput=document.getElementById('chatInput');
+        const chatBody=document.getElementById('chatBody');
+        const sendBtn=document.getElementById('sendBtn');
 
-        function addMessage(text, type) {
-            const div = document.createElement('div');
-            div.className = 'msg ' + type;
-            div.textContent = text;
-            chatBody.appendChild(div);
-            chatBody.scrollTop = chatBody.scrollHeight;
-        }
+        function addMessage(text,type){const div=document.createElement('div');div.className='msg '+type;div.textContent=text;chatBody.appendChild(div);chatBody.scrollTop=chatBody.scrollHeight}
 
-        const faq = {
-            course: 'GTI offers course pathways in facility management, caregiving, workplace development, and career-focused practical learning.',
-            bundle: 'Bundle pricing is shown for combined courses. The exact total must be confirmed in the current checkout or pricing page before payment.',
-            fee: 'Course fees vary by programme. Registration is separate from tuition and should be confirmed before checkout or enrolment.',
-            affiliate: 'Earn with GTI is currently a controlled pilot. The proposed commission is 15% of eligible tuition actually received, excluding registration fees, and it is not a final approved promise until confirmed.',
-            support: 'Students can get help with registration, login, course access, payment questions, and certificate verification.',
-            payment: 'Use the correct verified payment channels already approved by GTI. Never expose private payment data or credentials in browser code.',
-            certificate: 'Learners can receive a GTI Certificate of Completion when the required course and assessment requirements are met.',
-            signup: 'Use the existing student registration process and confirm all course and fee details before enrolling.',
-            login: 'Use the current working student login process. Do not change the account flow unless the live system has been checked.',
-            default: 'I can help with courses, pricing, support, bundles, affiliate pilot details, and student guidance. Ask me a specific question.'
+        const faq={
+            course:'GTI offers course pathways in facility management, caregiving, workplace development, and career-focused practical learning.',
+            bundle:'Bundle pricing is shown for combined courses. The exact total must be confirmed in the current checkout or pricing page before payment.',
+            fee:'Course fees vary by programme. Registration is separate from tuition and should be confirmed before checkout or enrolment.',
+            affiliate:'Earn with GTI is currently a controlled pilot. The proposed commission is 15% of eligible tuition actually received, excluding registration fees, and it is not a final approved promise until confirmed.',
+            support:'Students can get help with registration, login, course access, payment questions, and certificate verification.',
+            payment:'Use the correct verified payment channels already approved by GTI. Never expose private payment data or credentials in browser code.',
+            certificate:'Learners can receive a GTI Certificate of Completion when the required course and assessment requirements are met.',
+            signup:'Use the existing student registration process and confirm all course and fee details before enrolling.',
+            login:'Use the current working student login process. Do not change the account flow unless the live system has been checked.',
+            default:'I can help with courses, pricing, support, bundles, affiliate pilot details, and student guidance. Ask me a specific question.'
         };
 
-        function answerQuestion(q) {
-            const query = q.toLowerCase();
-            if (query.includes('course') || query.includes('program') || query.includes('learn')) return faq.course;
-            if (query.includes('price') || query.includes('fee') || query.includes('pay') || query.includes('bundle')) return faq.bundle;
-            if (query.includes('affiliate') || query.includes('earn') || query.includes('commission')) return faq.affiliate;
-            if (query.includes('support') || query.includes('help') || query.includes('student')) return faq.support;
-            if (query.includes('payment') || query.includes('bank') || query.includes('mpesa')) return faq.payment;
-            if (query.includes('certificate') || query.includes('cert')) return faq.certificate;
-            if (query.includes('register') || query.includes('sign up')) return faq.signup;
-            if (query.includes('login') || query.includes('account')) return faq.login;
-            return faq.default;
+        function answerQuestion(q){const query=q.toLowerCase();if(query.includes('course')||query.includes('program')||query.includes('learn'))return faq.course;if(query.includes('price')||query.includes('fee')||query.includes('pay')||query.includes('bundle'))return faq.bundle;if(query.includes('affiliate')||query.includes('earn')||query.includes('commission'))return faq.affiliate;if(query.includes('support')||query.includes('help')||query.includes('student'))return faq.support;if(query.includes('payment')||query.includes('bank')||query.includes('mpesa'))return faq.payment;if(query.includes('certificate')||query.includes('cert'))return faq.certificate;if(query.includes('register')||query.includes('sign up'))return faq.signup;if(query.includes('login')||query.includes('account'))return faq.login;return faq.default}
+
+        const sectionMap={course:document.getElementById('courses'),bundle:document.getElementById('pricing'),fee:document.getElementById('pricing'),price:document.getElementById('pricing'),career:document.getElementById('career'),services:document.getElementById('student-services'),support:document.getElementById('student-services'),affiliate:document.getElementById('affiliate'),commission:document.getElementById('affiliate'),policy:document.getElementById('faq'),terms:document.getElementById('faq'),privacy:document.getElementById('faq'),signup:document.getElementById('enroll'),login:document.getElementById('student-services')};
+
+        function navigateToRelevantSection(question){const q=question.toLowerCase();for(const key in sectionMap){if(q.includes(key)){const section=sectionMap[key];if(section)section.scrollIntoView({behavior:'smooth',block:'start'});return true}}return false}
+
+        chatToggle.addEventListener('click',()=>chatBox.classList.toggle('open'));
+        function sendMessage(){const value=chatInput.value.trim();if(!value)return;addMessage(value,'user');chatInput.value='';navigateToRelevantSection(value);setTimeout(()=>addMessage(answerQuestion(value),'bot'),200)}
+        sendBtn.addEventListener('click',sendMessage);chatInput.addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage()});
+
+        const vGo=document.getElementById('v-go');
+        const vNo=document.getElementById('v-no');
+        const vRes=document.getElementById('v-res');
+        vGo.addEventListener('click',()=>{
+            const value=(vNo.value||'').trim();
+            if(!value){vRes.textContent='Please enter a certificate number.';vRes.style.color='#b3261e';return;}
+            vRes.textContent='Certificate checked: ' + value + '. This looks like a valid GTI certificate format example, but actual verification should be confirmed by the institute.';
+            vRes.style.color='#1b3a6b';
+        });
+
+        const affiliateForm=document.getElementById('affiliate-form');
+        if(affiliateForm){
+            affiliateForm.addEventListener('submit',function(e){
+                e.preventDefault();
+                const name=document.getElementById('aff-name').value.trim();
+                const phone=document.getElementById('aff-phone').value.trim();
+                const email=document.getElementById('aff-email').value.trim();
+                const channels=document.getElementById('aff-channels').value.trim();
+                const msg=encodeURIComponent('Hello Gruis Training Institute, I am interested in the affiliate pilot.\n\nName: '+name+'\nPhone: '+phone+'\nEmail: '+email+'\nChannels: '+channels);
+                window.open('https://wa.me/12133378634?text='+msg, '_blank');
+            });
         }
-
-        const sectionMap = {
-            course: document.getElementById('courses'),
-            bundle: document.getElementById('pricing'),
-            fee: document.getElementById('pricing'),
-            price: document.getElementById('pricing'),
-            career: document.getElementById('career'),
-            services: document.getElementById('student-services'),
-            support: document.getElementById('student-services'),
-            affiliate: document.getElementById('affiliate'),
-            commission: document.getElementById('affiliate'),
-            policy: document.getElementById('faq'),
-            terms: document.getElementById('faq'),
-            privacy: document.getElementById('faq'),
-            signup: document.getElementById('enroll'),
-            login: document.getElementById('student-services')
-        };
-
-        function navigateToRelevantSection(question) {
-            const q = question.toLowerCase();
-            for (const key in sectionMap) {
-                if (q.includes(key)) {
-                    const section = sectionMap[key];
-                    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        chatToggle.addEventListener('click', function(){ chatBox.classList.toggle('open'); });
-
-        function sendMessage() {
-            const value = chatInput.value.trim();
-            if (!value) return;
-            addMessage(value, 'user');
-            chatInput.value = '';
-            navigateToRelevantSection(value);
-            setTimeout(() => addMessage(answerQuestion(value), 'bot'), 200);
-        }
-
-        sendBtn.addEventListener('click', sendMessage);
-        chatInput.addEventListener('keydown', function(e){ if (e.key === 'Enter') sendMessage(); });
     </script>
 </body>
 </html>
